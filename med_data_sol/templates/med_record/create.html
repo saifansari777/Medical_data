@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="patient_name">patient_name</label>
+    <input name="patient_name" id="patient_name" value="{{ request.form['patient_name'] }}" required>
+    <label for="doctor_name">doctor_name</label>
+    <input name="doctor_name" id="doctor_name" value="{{ request.form['doctor_name'] }}" required>
+    <label for="diagnoses">diagnoses</label>
+    <input name="diagnoses" id="diagnoses" value="{{ request.form['diagnoses'] }}" required>
+    <label for="registration_date">registration_date</label>
+    <input name="registration_date" id="registration_date" type="date" value="{{ request.form['registration_date'] }}" required>
+     <label for="last_checkup_date"_date">last_checkup_date"_date</label>
+    <input name="last_checkup_date"_date" id="last_checkup_date"_date" type="date" value="{{ request.form['last_checkup_date"_date'] }}" required>
+    <label for="comment">comment</label>
+
+    <textarea name="comment" id="comment">{{ request.form['comment'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

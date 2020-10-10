@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Dashboard{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if g.user["user_group"] == "Admin" %}
+<h1> Admin Dashboard </h1>
+<p>Hello ! {{ g.user["username"]}}</p>
+{% elif g.user["user_group"] == "Doctor" %}
+<h1> Doctor Dashboard </h1>
+<p>Hello ! {{ g.user["username"]}}</p>
+{% elif g.user["user_group"] == "Patient" %}
+<h1> Patient Dashboard </h1>
+<p>Hello ! {{ g.user["username"]}}</p>
+{% else %}
+<h1> User Group Does Not Exists </h1>
+{% endif %}
+<a href="{{ url_for('med.create')}}">Create A record</a>
+{% endblock %}
